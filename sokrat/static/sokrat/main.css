@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400;1,500;1,600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lora', serif;
+    font-size: 18px;
+    background: #fafafa;
+}
+
+
+.btn {
+    font-size: 600;
+    font-style: italic;
+}
+
+
+.my-nav {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+a.navbar-brand {
+    font-size: 2rem;
+    transition: all 1s ease;
+}
+
+a.navbar-brand:hover {
+    transform: scale(1.1);
+    color: #50C878 !important;
+}
+
+.main-btn {
+    margin-top: 5px;
+    font-size: 20px;
+    padding: 10px 15px;
+}
+
+.content {
+    display: flex;
+    height: 90vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.content.sokrat {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    margin-top: 40px;
+}
+
+.content.reg {
+    margin: 50px 0;
+}
+
+
+.form-register {
+    width: 60%;
+    padding: 20px;
+    background: #fafafa;
+    border: 1px solid silver;
+    border-radius: 5px;
+}
+
+.form-register.full {
+    width: 600px;
+}
+
+.form-register .helptext {
+    color: #b7b7b7;
+}
+
+.form-register  ul.errorlist {
+    color: #ca5858;
+    font-weight: bold;
+}
+
+
+.form-register.auth input,
+.form-register.auth textarea{
+    display: block;
+    width: 96%;
+    margin-top: 5px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    padding: 2%;
+}
+
+textarea {
+    resize: none;
+}
+
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    padding: 30px;
+    bottom: 0;
+}
+
+
+/*@media all and (max-device-width: 400px) {
+    .content.sokrat {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 40px;
+    }
+    .content.sokrat > aside {
+        margin-top: 20px;
+    }
+}*/
+
+@media all and (max-device-width: 600px) {
+    .content {
+        font-size: 30px;
+    }
+
+    .content.sokrat {
+    display: block;
+    text-align: center;
+    margin-top: 40px;
+    }
+    .content.sokrat > aside {
+        margin-top: 20px;
+    }
+    .form-register.full {
+        margin: 0 auto;
+    }
+
+    .form-register,
+    .form-register.full {
+    width: 80%;
+    padding: 40px;
+
+    }
+    .form-control {
+        font-size: 1.5rem;
+        padding: 30px 2%;
+    }
+
+    button[type='submit'],
+    .main-btn {
+        font-size: 1.7rem;
+    }
+
+    div.buttons > a > .btn{
+        font-size: 1.3rem;
+    }
+
+    h3 {
+        font-size: 35px;
+    }
+
+    div.alert {
+        font-size: 26px;
+    }
+
+}
+

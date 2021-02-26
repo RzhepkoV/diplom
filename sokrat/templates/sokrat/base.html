@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'sokrat/main.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+  <header>
+      <nav class="my-nav navbar-dark bg-dark container-fluid">
+          <div class="logo">
+              <a class="navbar-brand" href="{% url 'home' %}">Sokrat.Im</a>
+          </div>
+          <div class="buttons">
+              {% if not user.is_authenticated %}
+              <a href="{% url 'reg' %}">
+                <button class="btn btn-outline-warning">Регистрация</button>
+              </a>
+              <a href="{% url 'user' %}" class="ml-2">
+                <button class="btn btn-outline-info">Войти</button>
+              </a>
+              {% else %}
+              <a href="{% url 'sokrat' %}">
+                <button class="btn btn-outline-info">Мои&nbsp;ссылки</button>
+              </a>
+              <a href="{% url 'profile' %}">
+                <button class="btn btn-outline-warning ml-2">Профиль</button>
+              </a>
+              <a href="{% url 'exit' %}" class="ml-2">
+                <button class="btn btn-outline-danger">Выйти</button>
+              </a>
+              {% endif %}
+          </div>
+      </nav>
+
+  </header>
+
+  {% if messages %}
+        {% for mess in messages %}
+            <div class="alert alert-{{mess.tags}}">{{ mess }}</div>
+        {% endfor %}
+  {% endif %}
+<!--  <div class="content">-->
+      {% block content %}
+      {% endblock %}
+<!--  </div>-->
+
+
+
+  <footer class="bg-dark">
+      <p class="mb-0">Все права защищены&copy;</p>
+  </footer>
+</body>
+</html>

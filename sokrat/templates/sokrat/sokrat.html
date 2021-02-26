@@ -1,0 +1,28 @@
+{% extends 'sokrat/base.html' %}
+{% block title %}
+    Сокращение ссылок
+{% endblock %}
+
+{% block content %}
+        <div class="content sokrat">
+            <div class="link">
+                <h3 class="mb-3">Заполните форму</h3>
+                <form method="post" class="form-register auth full">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="btn btn-outline-warning" type="submit">Сократить</button>
+                </form>
+            </div>
+            <aside>
+                <h3>Мои ссылки:</h3>
+                <ul class="mb-5">
+                    {% for item in links %}
+                        {% if item.user == user %}
+                            <li><a href="{{ item.long }}" target="_blank">/{{ item.short }}/</a></li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </aside>
+        </div>
+
+{% endblock %}
